@@ -1,0 +1,14 @@
+.main {
+  background-color: $main-background-color;
+  color: $main-color;
+  display: flex;
+  font-size: 24px;
+  font-weight: bold;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  padding: 20px;
+}
+
+.item {
+  background-color: blue;
+}
