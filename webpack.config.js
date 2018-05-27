@@ -1,7 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const autoprefixer = require('autoprefixer');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
@@ -34,15 +33,12 @@ module.exports = {
           {
             loader: 'css-loader',
             options: {
-              minimize: !isDevelopment,
-            },
-          },
-          {
-            loader: 'postcss-loader',
-            options: {
-              plugins: () => [
-                autoprefixer({ browsers: ['last 2 versions'] }),
-              ],
+              minimize: !isDevelopment && {
+                autoprefixer: {
+                  add: true,
+                  browsers: ['last 2 versions'],
+                },
+              },
             },
           },
           {
